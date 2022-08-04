@@ -9,21 +9,18 @@ using System.Threading.Tasks;
 
 namespace ShoppingCart.Data.Mapping
 {
-    public class UserMap : IEntityTypeConfiguration<User>
+    public class CartItemMap : IEntityTypeConfiguration<CartItem>
     {
-        public void Configure(EntityTypeBuilder<User> builder)
+        public void Configure(EntityTypeBuilder<CartItem> builder)
         {
-            builder.ToTable("user");
+            builder.ToTable("cart_item");
             builder.HasKey(e => e.Id);
 
             builder.Property(e => e.Id).HasColumnName("id");
             builder.Property(e => e.Guid).HasColumnName("guid");
-            builder.Property(e => e.Name).HasColumnName("name");
-            builder.Property(e => e.Mail).HasColumnName("mail");
-
-            builder.HasOne(e => e.Address)
-                .WithOne(x => x.User)
-                .HasForeignKey<DeliveryAddress>(z => z.UserId);
+            builder.Property(e => e.CartId).HasColumnName("cart_id");
+            builder.Property(e => e.UnitPrice).HasColumnName("unit_price");
+            builder.Property(e => e.Quantity).HasColumnName("quantity");
         }
     }
 }

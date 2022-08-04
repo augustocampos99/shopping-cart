@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingCart.Domain.Entity
 {
-    public class User
+    public class Product
     {
         public int Id { get; set; }
 
@@ -14,9 +14,10 @@ namespace ShoppingCart.Domain.Entity
 
         public string Name { get; set; }
 
-        public string Mail { get; set; }
+        public string Description { get; set; }
 
-        public DeliveryAddress Address { get; set; }
+        public decimal Price { get; set; }
 
+        public int quantity { get; set; }
     }
 }

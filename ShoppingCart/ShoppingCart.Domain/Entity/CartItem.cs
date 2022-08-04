@@ -6,17 +6,18 @@ using System.Threading.Tasks;
 
 namespace ShoppingCart.Domain.Entity
 {
-    public class User
+    public class CartItem
     {
         public int Id { get; set; }
 
         public Guid Guid { get; set; }
 
-        public string Name { get; set; }
+        public int CartId { get; set; }
 
-        public string Mail { get; set; }
+        public decimal UnitPrice { get; set; }
 
-        public DeliveryAddress Address { get; set; }
+        public int Quantity { get; set; }
 
+        public Cart Cart { get; set; }
     }
 }

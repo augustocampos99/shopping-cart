@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ShoppingCart.Data.Mapping;
 using ShoppingCart.Domain.Entity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ShoppingCart.Data.Context
 {
@@ -17,9 +12,16 @@ namespace ShoppingCart.Data.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UserMap());
+            modelBuilder.ApplyConfiguration(new ProductMap());
+            modelBuilder.ApplyConfiguration(new CartMap());
+            modelBuilder.ApplyConfiguration(new CartItemMap());
+            modelBuilder.ApplyConfiguration(new DeliveryAddressMap());
         }
 
         public virtual DbSet<User> Users { get; set; }
-
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Cart> Cart { get; set; }
+        public virtual DbSet<CartItem> CartItems { get; set; }
+        public virtual DbSet<DeliveryAddress> DeliveryAddress { get; set; }
     }
 }
